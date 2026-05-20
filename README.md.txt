@@ -1,10 +1,10 @@
-# 🎬 Movie Recommendation System
+# ?? Movie Recommendation System
 
 A content-based Movie Recommendation System built using Python, Pandas, NLP, Scikit-learn, and Streamlit.
 
 ---
 
-## 📌 Project Overview
+## ?? Project Overview
 
 This project recommends movies similar to the one selected by the user.
 
@@ -24,7 +24,7 @@ The web application is built using Streamlit.
 
 ---
 
-## 🚀 Features
+## ?? Features
 
 * Movie recommendation engine
 * Clean Streamlit user interface
@@ -35,7 +35,7 @@ The web application is built using Streamlit.
 
 ---
 
-## 🛠️ Technologies Used
+## ??? Technologies Used
 
 * Python
 * Pandas
@@ -47,23 +47,23 @@ The web application is built using Streamlit.
 
 ---
 
-## 📂 Project Structure
+## ?? Project Structure
 
 ```bash
 Movie-Recommendation-System/
-│
-├── app.py
-├── movie_recommender.ipynb
-├── movies.pkl
-├── .gitignore
-├── data/
-│   ├── tmdb_5000_movies.csv
-│   └── tmdb_5000_credits.csv
+�
++-- app.py
++-- movie_recommender.ipynb
++-- movies.pkl
++-- .gitignore
++-- data/
+�   +-- tmdb_5000_movies.csv
+�   +-- tmdb_5000_credits.csv
 ```
 
 ---
 
-## ▶️ How to Run the Project
+## ?? How to Run the Project
 
 ### 1. Clone Repository
 
@@ -91,7 +91,7 @@ streamlit run app.py
 
 ---
 
-## 📸 Output
+## ?? Output
 
 The application allows users to:
 
@@ -101,7 +101,7 @@ The application allows users to:
 
 ---
 
-## 🔮 Future Improvements
+## ?? Future Improvements
 
 * Add movie posters using TMDB API
 * Netflix-style UI
@@ -111,7 +111,7 @@ The application allows users to:
 
 ---
 
-## 👩‍💻 Author
+## ????? Author
 
 Dipanshi
 
