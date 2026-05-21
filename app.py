@@ -1,6 +1,25 @@
 import streamlit as st
 import pickle
 
+# Sidebar
+st.sidebar.title("About")
+
+st.sidebar.info(
+    """
+    🎬 Movie Recommendation System
+
+    This app recommends movies using
+    Machine Learning and NLP.
+
+    Technologies Used:
+    - Python
+    - Pandas
+    - Scikit-learn
+    - Streamlit
+
+    """
+)
+
 # Load files
 movies = pickle.load(open('movies.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
@@ -83,7 +102,7 @@ def recommend(movie):
     return recommended_movies
 
 # Button
-if st.button('Recommend'):
+if st.button('🎥 Show Recommendations'):
 
     recommendations = recommend(selected_movie)
 
@@ -160,3 +179,10 @@ if st.button('Recommend'):
             """,
             unsafe_allow_html=True
         )
+
+st.markdown("---")
+
+st.markdown(
+    "<center>Made with ❤️ using Streamlit</center>",
+    unsafe_allow_html=True
+)
