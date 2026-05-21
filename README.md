@@ -51,14 +51,14 @@ The web application is built using Streamlit.
 
 ```bash
 Movie-Recommendation-System/
-¦
+Â¦
 +-- app.py
 +-- movie_recommender.ipynb
 +-- movies.pkl
 +-- .gitignore
 +-- data/
-¦   +-- tmdb_5000_movies.csv
-¦   +-- tmdb_5000_credits.csv
+Â¦   +-- tmdb_5000_movies.csv
+Â¦   +-- tmdb_5000_credits.csv
 ```
 
 ---
