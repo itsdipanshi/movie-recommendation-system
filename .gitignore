@@ -1,2 +1,4 @@
 similarity.pkl
 *.zip
+.ipynb_checkpoints/
+*.pkl
