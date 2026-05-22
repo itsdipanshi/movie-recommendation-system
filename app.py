@@ -1,31 +1,35 @@
 import streamlit as st
 import pickle
 
+# Page config
+st.set_page_config(page_title="Movie Recommender", layout="wide")
+
 # Sidebar
 st.sidebar.title("About")
-
 st.sidebar.info(
     """
-    🎬 Movie Recommendation System
+🎬 Movie Recommendation System
 
-    This app recommends movies using
-    Machine Learning and NLP.
+This app recommends movies using
+Machine Learning + NLP.
 
-    Technologies Used:
-    - Python
-    - Pandas
-    - Scikit-learn
-    - Streamlit
-
-    """
+Technologies Used:
+- Python
+- Pandas
+- Scikit-learn
+- Streamlit
+"""
 )
 
 # Load files
 movies = pickle.load(open('movies.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
-# Page config
-st.set_page_config(page_title="Movie Recommender", layout="wide")
+# Movie list
+movie_list = movies['title'].values
+selected_movie = st.selectbox("Type or select a movie", movie_list)
+
+# Styling
 st.markdown(
     """
     <style>
@@ -54,37 +58,25 @@ st.markdown(
 )
 
 # Title
-# Custom Heading
 st.markdown(
-    """
-    <h1 style='text-align: center; color: #E50914;'>
-        🎬 Movie Recommendation System
-    </h1>
-    """,
+    "<h1 style='text-align: center; color: #E50914;'>🎬 Movie Recommendation System</h1>",
     unsafe_allow_html=True
 )
 
 st.markdown(
-    """
-    <h4 style='text-align: center;'>
-        Find movies similar to your favorites
-    </h4>
-    """,
+    "<h4 style='text-align: center;'>Find movies similar to your favorites</h4>",
     unsafe_allow_html=True
 )
 
-# Movie list
-movie_list = movies['title'].values
-
-selected_movie = st.selectbox(
-    "Type or select a movie",
-    movie_list
-)
-
-# Recommendation function
+# Recommendation function (CLEAN VERSION)
 def recommend(movie):
 
-    movie_index = movies[movies['title'] == movie].index[0]
+    movie_index = movies[movies['title'] == movie].index
+
+    if len(movie_index) == 0:
+        return []
+
+    movie_index = movie_index[0]
 
     distances = similarity[movie_index]
 
@@ -101,88 +93,34 @@ def recommend(movie):
 
     return recommended_movies
 
+
 # Button
 if st.button('🎥 Show Recommendations'):
 
-    recommendations = recommend(selected_movie)
+    names = recommend(selected_movie)
 
     st.subheader("Recommended Movies")
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    if len(names) == 0:
+        st.warning("No recommendations found.")
+    else:
+        col1, col2, col3, col4, col5 = st.columns(5)
 
-    with col1:
-        st.markdown(
-            f"""
-            <div style='padding:15px;
-                        border-radius:10px;
-                        background-color:#262730;
-                        text-align:center;
-                        color:white;'>
-                <h4>{recommendations[0]}</h4>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with col1:
+            st.write(names[0])
 
-    with col2:
-        st.markdown(
-            f"""
-            <div style='padding:15px;
-                        border-radius:10px;
-                        background-color:#262730;
-                        text-align:center;
-                        color:white;'>
-                <h4>{recommendations[1]}</h4>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with col2:
+            st.write(names[1])
 
-    with col3:
-        st.markdown(
-            f"""
-            <div style='padding:15px;
-                        border-radius:10px;
-                        background-color:#262730;
-                        text-align:center;
-                        color:white;'>
-                <h4>{recommendations[2]}</h4>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with col3:
+            st.write(names[2])
 
-    with col4:
-        st.markdown(
-            f"""
-            <div style='padding:15px;
-                        border-radius:10px;
-                        background-color:#262730;
-                        text-align:center;
-                        color:white;'>
-                <h4>{recommendations[3]}</h4>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with col4:
+            st.write(names[3])
 
-    with col5:
-        st.markdown(
-            f"""
-            <div style='padding:15px;
-                        border-radius:10px;
-                        background-color:#262730;
-                        text-align:center;
-                        color:white;'>
-                <h4>{recommendations[4]}</h4>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with col5:
+            st.write(names[4])
 
+# Footer
 st.markdown("---")
-
-st.markdown(
-    "<center>Made with ❤️ using Streamlit</center>",
-    unsafe_allow_html=True
-)
+st.markdown("<center>Made with ❤️ using Streamlit</center>", unsafe_allow_html=True)
