@@ -3,20 +3,20 @@
 A machine learning-based movie recommendation system built using Python and Streamlit. It recommends movies similar to the selected movie using content-based filtering and NLP techniques.
 
 🚀 Features
-.🎯 Recommend similar movies instantly
-.🎬 Works for Bollywood + Hollywood movies
-.🧠 Uses Machine Learning (Cosine Similarity)
-.⚡ Fast and interactive web app
-.📊 Simple and clean UI using Streamlit
+-🎯 Recommend similar movies instantly
+-🎬 Works for Bollywood + Hollywood movies
+-🧠 Uses Machine Learning (Cosine Similarity)
+-⚡ Fast and interactive web app
+-📊 Simple and clean UI using Streamlit
 
 Streamlit
 
 🛠️ Tech Stack
-.Python 🐍
-.Pandas
-.NumPy
-.Scikit-learn
-.Streamlit
+-Python 🐍
+-Pandas
+-NumPy
+-Scikit-learn
+-Streamlit
 
 📂 Project Structure
  Movie-Recommendation-System/
