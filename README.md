@@ -73,6 +73,13 @@ You will get similar sci-fi / action movies recommended.
 
 ---
 
+## 📸 Project Screenshots
+-🏠 Home Page
+
+-🎥 Recommendation Result
+
+---
+
 ## 👩‍💻 Author
 
 Dipanshi
