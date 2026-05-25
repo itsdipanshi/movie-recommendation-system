@@ -74,9 +74,9 @@ You will get similar sci-fi / action movies recommended.
 ---
 
 ## 📸 Project Screenshots
--🏠 Home Page
+![Home Page](Images/home.png)
 
--🎥 Recommendation Result
+![Recommendation Result](Images/recommendation.png)
 
 ---
 
