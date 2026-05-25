@@ -6,6 +6,7 @@ st.set_page_config(page_title="Movie Recommender", layout="wide")
 
 # Sidebar
 st.sidebar.title("About")
+
 st.sidebar.info(
     """
 🎬 Movie Recommendation System
@@ -27,7 +28,11 @@ similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 # Movie list
 movie_list = movies['title'].values
-selected_movie = st.selectbox("Type or select a movie", movie_list)
+
+selected_movie = st.selectbox(
+    "Type or select a movie",
+    movie_list
+)
 
 # Styling
 st.markdown(
@@ -68,7 +73,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Recommendation function (CLEAN VERSION)
+# Recommendation function
 def recommend(movie):
 
     movie_index = movies[movies['title'] == movie].index
@@ -89,7 +94,10 @@ def recommend(movie):
     recommended_movies = []
 
     for i in movies_list:
-        recommended_movies.append(movies.iloc[i[0]].title)
+
+        recommended_movies.append(
+            movies.iloc[i[0]].title
+        )
 
     return recommended_movies
 
@@ -102,8 +110,11 @@ if st.button('🎥 Show Recommendations'):
     st.subheader("Recommended Movies")
 
     if len(names) == 0:
+
         st.warning("No recommendations found.")
+
     else:
+
         col1, col2, col3, col4, col5 = st.columns(5)
 
         with col1:
@@ -123,4 +134,8 @@ if st.button('🎥 Show Recommendations'):
 
 # Footer
 st.markdown("---")
-st.markdown("<center>Made with ❤️ using Streamlit</center>", unsafe_allow_html=True)
+
+st.markdown(
+    "<center>Made with ❤️ using Streamlit</center>",
+    unsafe_allow_html=True
+)
